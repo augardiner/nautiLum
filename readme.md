@@ -2,11 +2,11 @@
 
 ## The Project
 
-NautiLum brings any [NOAA Certified Nautical Chart](https://nauticalcharts.noaa.gov/) to life. 
+NautiLum brings any [NOAA Certified Nautical Chart](https://nauticalcharts.noaa.gov/) to life by replacing each illuminated buoy with an LED, flashing at the correct interval.
 
-Nautical charts are one of many tools used by boaters for nautical navigation. By providing a visual reference for both geographical features and navigational markers, they can be used for things like maintaining one's position ploting a course, etc. Essentially, they're nautical roadmaps.
+Nautical charts are one of many tools used by boaters for nautical navigation. By providing a visual reference for both geographical features and navigational markers, they can be used for things like maintaining one's position, ploting a course, etc. Essentially, they're nautical roadmaps.
 
-One key feature of nautical chars are a vareity markers that represent their real-life counterparts. These can be buoys, spindles, or lighthouses, which often have lights that flash at specific intervals. These intervals are specified on the chart itself and used by boaters to identify each marker while on the water. See the table below for a list of these different flashing characteristics:
+One key feature of nautical charts are markers that represent their real-life counterparts. These can be buoys, spindles, or lighthouses, which often have lights flashing at specific intervals. These intervals are specified on the chart itself and used by boaters to identify each individual marker while on the water. See the table below for a list of these different flashing characteristics:
 
 | Characteristic           | Abbr.   | Definition                                                      | Example       | Representation                               |
 |--------------------------|---------|-----------------------------------------------------------------|---------------|----------------------------------------------|
@@ -21,7 +21,7 @@ One key feature of nautical chars are a vareity markers that represent their rea
 
 ## The Code
 
-The sketch (buoys.ino) uses a single Buoy class, in which each "buoy" with an individual flashing characteristic is instantiated with the parameters (pin, buoyType, period, group1=0, group2=0), where:
+The sketch (buoys.ino) uses a single Buoy class, in which each "buoy" with an individual flashing characteristic is instantiated with the parameters:
 
 `pin` = Digital Output In on the Arduino
 
@@ -33,4 +33,4 @@ The sketch (buoys.ino) uses a single Buoy class, in which each "buoy" with an in
 
 `_group2` = for group flash, how many flashes in the second group (defaults to 0)
 
-In the main loop, the `millis` function is used to measure time intervals, which get passed to the `flash` method of each buoy, in order to set the output of the specified pin `HIGH` or `LOW`.
+In the main loop, `millis` is used to measure time intervals. Each interval is passed to the `flash` method of each buoy, in order to set the output of the specified pin `HIGH` or `LOW`, depending on the characteristic of that buoy.
