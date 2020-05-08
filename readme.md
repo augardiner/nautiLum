@@ -23,7 +23,7 @@ One key feature of nautical charts are markers that represent their real-life co
 
 The sketch (buoys.ino) uses a single Buoy class, in which each "buoy" with an individual flashing characteristic is instantiated with the parameters:
 
-`pin` = Digital Output In on the Arduino
+`pin` = Digital Output pin on the Arduino
 
 `buoyType` = which flashing scheme should be used (see list in code)
 
